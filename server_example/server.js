@@ -16,5 +16,8 @@ var webServer = http.createServer(httpApp).listen(8080);
 // Start Socket.io so it attaches itself to Express server
 var socketServer = io.listen(webServer, {"log level":1});
 
+// Set log level for EasyRTC Server
+easyrtc.setOption("logLevel", "info");
+
 // Start EasyRTC server
 var rtc = easyrtc.listen(httpApp, socketServer);
